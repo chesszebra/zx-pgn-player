@@ -1,0 +1,178 @@
+zebrux-chessboard {
+  display: inline-block;
+  width: 100%;
+}
+
+.zx-gp-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.zx-gp {
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  .zx-gp-inner {
+    @include zx-display-inline-flex;
+    @include zx-justify-content(space-between);
+
+    width: 100%;
+  }
+
+  .zx-gp-board {
+    float: left;
+
+    canvas {
+      background: #fff;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .zx-gp-pgn-container {
+    @include zx-display-flex;
+    @include zx-justify-content(space-between);
+    @include zx-flex-direction(column);
+
+    background-color: #fff;
+    width: 100%;
+
+    .zx-gp-pgn-head {
+      @include zx-display-flex;
+      @include zx-justify-content(space-between);
+
+      padding: 1rem 1rem 0 1rem;
+
+      .zx-gp-player-name {
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+
+        span {
+          font-size: 0.9rem;
+          margin-left: 0.5rem;
+        }
+      }
+
+      .zx-gp-pgn-player-white,
+      .zx-gp-pgn-player-black,
+      .zx-gp-pgn-match {
+        @include zx-flex-grow(1);
+
+        position: relative;
+      }
+
+      .zx-gp-pgn-match {
+        @include zx-flex-grow(4);
+      }
+
+      .zx-gp-pgn-player-white .zx-gp-player-avatar {
+        float: left;
+        margin-right: 10px;
+      }
+
+      .zx-gp-pgn-player-black .zx-gp-player-avatar {
+        float: right;
+        margin-left: 10px;
+      }
+
+      .zx-gp-pgn-player-black .zx-gp-player-name,
+      .zx-gp-pgn-player-black .zx-gp-player-country {
+        text-align: right;
+      }
+
+      .zx-gp-player-country .flag-icon {
+        height: 32px;
+        width: 32px;
+      }
+
+      .zx-gp-pgn-match {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      .zx-gp-pgn-match-result {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+
+    .zx-gp-pgn-body {
+      overflow: auto;
+      padding: 1rem;
+    }
+  }
+
+  .zx-gp-button-bar {
+    @include zx-display-flex;
+    @include zx-justify-content(space-between);
+
+    background: #f2f2f2;
+    height: 30px;
+
+    button {
+      height: 30px;
+    }
+  }
+}
+
+.zx-gp-pgn-comment {
+  color: #888;
+  font-weight: 400;
+  padding: 0.2rem 0.25rem;
+}
+
+.zx-gp-pgn-move {
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 1rem;
+  padding: 0.2rem 0.25rem;
+}
+
+.zx-gp-pgn-move-disabled {
+  cursor: default;
+}
+
+.zx-gp-pgn-rav {
+  color: #8c8c8c;
+  margin-right: 1rem;
+
+  .zx-gp-pgn-rav-close {
+    margin-left: -1rem;
+  }
+
+  .zx-gp-pgn-comment + .zx-gp-pgn-rav-close {
+    margin-left: 0;
+  }
+}
+
+.zx-gp-pgn-current-move {
+  @include zx-border-radius(3px);
+
+  background-color: #f26444;
+  color: white;
+}
+
+.zx-gp-engine {
+  border: 1px solid #f2f2f2;
+  font-size: 0.9rem;
+
+  .zx-gp-engine-row {
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .zx-gp-engine-row:last-child {
+    border-bottom: 0;
+  }
+
+  .zx-gp-engine-row-score {
+    display: inline-block;
+    padding: 0 1rem;
+    text-align: center;
+    width: 60px;
+  }
+
+  .zx-gp-engine-row-moves {
+    display: inline-block;
+  }
+}
